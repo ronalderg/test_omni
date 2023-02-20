@@ -1,0 +1,54 @@
+name: test_omni
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cached_network_image: ^3.2.3
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  dio: ^5.0.0
+  equatable: ^2.0.5
+  flutter_easyloading: ^3.0.3
+  get: ^4.6.5
+  json_annotation: ^4.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  analyzer: ^5.5.0
+  build_runner: ^2.3.3
+  flutter_gen_runner:
+  very_good_analysis: ^3.1.0
+  json_serializable: ^6.6.1
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Intervogue
+      fonts:
+       - asset: assets/fonts/intervogue/Fontspring-DEMO-intervogue-black.otf
+         weight: 100
+       - asset: assets/fonts/intervogue/Fontspring-DEMO-intervogue-bold.otf
+         weight: 200
+       - asset: assets/fonts/intervogue/Fontspring-DEMO-intervogue-light.otf
+         weight: 300
+       - asset: assets/fonts/intervogue/Fontspring-DEMO-intervoguealt-black.otf
+         weight: 400
+       - asset: assets/fonts/intervogue/Fontspring-DEMO-intervoguealt-bold.otf
+         weight: 500
+       - asset: assets/fonts/intervogue/Fontspring-DEMO-intervoguealt-reg.otf
+         weight: 600
