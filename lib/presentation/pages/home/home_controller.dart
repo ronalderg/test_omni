@@ -89,4 +89,9 @@ class HomeController extends GetxController {
       ..refresh();
     photoList.refresh();
   }
+
+  void onRefresh(){
+    photoList.value = [];
+    getPhotos();
+  }
 }

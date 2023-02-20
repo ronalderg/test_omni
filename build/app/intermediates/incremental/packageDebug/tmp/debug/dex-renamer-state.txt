@@ -1,0 +1,4 @@
+#Sun Feb 19 22:47:05 COT 2023
+base.0=/Users/ronalderg/StudioProjects/Newpush/test_omni/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

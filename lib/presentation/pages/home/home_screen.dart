@@ -16,6 +16,7 @@ class HomeScreen extends GetWidget<HomeController> {
       child: Scaffold(
         key: controller.scaffoldKey,
         appBar: AppBar(
+          centerTitle: true,
           leading: IconButton(
             color: Colors.white,
             onPressed: () {

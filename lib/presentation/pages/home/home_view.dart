@@ -27,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
         Expanded(
           child: RefreshIndicator(
               onRefresh: () async {
-                unawaited(controller.getPhotos());
+                controller.onRefresh();
               },
               child: Obx(
                     () => Column(
