@@ -5,15 +5,17 @@ import 'package:test_omni/data/entities/photo_entity.dart';
 
 /// API Url
 const String apiBase = 'jsonplaceholder.typicode.com';
+
 /// Controller/Path of api
 const String basePath = 'photos';
 
 /// Photo data source impl
 class PhotoDataSourceImpl implements PhotoDataSource {
-
   @override
-  Future<List<PhotoEntity>> getPhotos(
-      {required int start, required int limit,}) async{
+  Future<List<PhotoEntity>> getPhotos({
+    required int start,
+    required int limit,
+  }) async {
     final uri = Uri.http(apiBase, basePath, {
       '_start': '$start',
       '_limit': '$limit',
@@ -23,12 +25,11 @@ class PhotoDataSourceImpl implements PhotoDataSource {
     if (response.statusCode != 200) {
       throw Exception('status code: ${response.statusCode}');
     }
-    try{
+    try {
       return (response.data as List<dynamic>)
           .map((e) => PhotoEntity.fromJson(e as Map<String, dynamic>))
           .toList();
-    }
-    catch(e){
+    } catch (e) {
       throw Exception(response.statusCode);
     }
   }
@@ -53,7 +54,6 @@ class PhotoDataSourceImpl implements PhotoDataSource {
     //await Dio().delete();
     return unit;
   }
-
 
   @override
   Future<Unit> update(PhotoEntity photoEntity) async {
