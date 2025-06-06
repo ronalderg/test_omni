@@ -24,9 +24,9 @@ void main() {
           id: 1,
           albumId: 1,
           title: 'accusamus beatae ad facilis cum similique qui sunt',
-          url:'https://via.placeholder.com/600/92c952',
+          url: 'https://via.placeholder.com/600/92c952',
           thumbnailUrl: 'https://via.placeholder.com/150/92c952',
-        )
+        ),
       ];
 
       final expected = [
@@ -34,9 +34,9 @@ void main() {
           id: 1,
           albumId: 1,
           title: 'accusamus beatae ad facilis cum similique qui sunt',
-          url:'https://via.placeholder.com/600/92c952',
+          url: 'https://via.placeholder.com/600/92c952',
           thumbnailUrl: 'https://via.placeholder.com/150/92c952',
-        )
+        ),
       ];
 
       when(() => mockDS.getPhotos(start: 0, limit: 1))

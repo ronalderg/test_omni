@@ -7,19 +7,17 @@ import 'package:test_omni/core/traslations/es.dart';
 class LocalizationService extends Translations {
   ///Locale for get all text
   static const locale = Locale('es');
+
   ///App Languages
   static final languages = [
-    'Spanish'
+    'Spanish',
   ];
+
   ///Locales
   static final locales = [
     const Locale('es'),
   ];
 
   @override
-  Map<String, Map<String, String>> get keys => {
-    'en_US': en,
-    'es_ES': es
-  };
-
+  Map<String, Map<String, String>> get keys => {'en_US': en, 'es_ES': es};
 }

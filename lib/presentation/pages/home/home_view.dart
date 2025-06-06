@@ -22,56 +22,60 @@ class _HomeViewState extends State<HomeView> {
     final controller = Get.find<HomeController>();
     return Column(
       children: [
-        const SizedBox(height: 15,),
+        const SizedBox(
+          height: 15,
+        ),
         Expanded(
           child: RefreshIndicator(
-              onRefresh: () async {
-                controller.onRefresh();
-              },
-              child: Obx(
-                    () => Column(
-                  children: [
-                    Expanded(
-                      child: ListView.builder(
-                        controller: controller.scrollController,
-                        shrinkWrap: true,
-                        itemCount: controller.photoList.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              ListTile(
-                                leading: CachedNetworkImage(
-                                  imageUrl: controller
-                                      .photoList[index].thumbnailUrl,
-                                  imageBuilder: (context, imageProvider) =>
-                                      Image(image: imageProvider),
-                                  placeholder: (context, url) =>
-                                  const CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error),
-                                ),
-                                title:
-                                Text(capitalizeText(controller.photoList[index]
-                                    .title,),),
+            onRefresh: () async {
+              controller.onRefresh();
+            },
+            child: Obx(
+              () => Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      controller: controller.scrollController,
+                      shrinkWrap: true,
+                      itemCount: controller.photoList.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            ListTile(
+                              leading: CachedNetworkImage(
+                                imageUrl:
+                                    controller.photoList[index].thumbnailUrl,
+                                imageBuilder: (context, imageProvider) =>
+                                    Image(image: imageProvider),
+                                placeholder: (context, url) =>
+                                    const CircularProgressIndicator(),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
                               ),
-                              const Divider(),
-                            ],
-                          );
-                        },
+                              title: Text(
+                                capitalizeText(
+                                  controller.photoList[index].title,
+                                ),
+                              ),
+                            ),
+                            const Divider(),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                  if (controller.state.value == ViewState.gettingPhotos)
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      child: const Center(
+                        child: CircularProgressIndicator(),
                       ),
                     ),
-                    if (controller.state.value == ViewState.gettingPhotos)
-                      Container(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                  ],
-                ),
-              ),),
+                ],
+              ),
+            ),
+          ),
         ),
-
       ],
     );
   }
